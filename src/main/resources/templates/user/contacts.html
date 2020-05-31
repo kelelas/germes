@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/test.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 logo">
+                <div th:text="#{header.germes}"></div>
+            </div>
+            <div class="col-4 buttons">
+                <button type="submit" class="btn btn-light" onclick="location.href='?locale=ua'" th:text="#{header.ukr}"></button>
+                <button type="submit" class="btn btn-light" onclick="location.href='?locale=en'" th:text="#{header.eng}"></button>
+            </div>
+            <div class="col-4 logout">
+                <div>
+                    <div class="name" th:text="${user.getNameEng()}"></div>
+                    <button type="button" class="btn btn-outline-secondary" onclick="location.href='/logout'" th:text="#{button.logout}"></button>
+                    <div class="name" th:text="#{header.balance} + ${user.getBalance()}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="menu">
+    <div class="container">
+        <ul>
+            <li><a href="/user/shop" th:text="#{page.shop}"></a></li>
+            <li><a href="/user/bill" th:text="#{page.bill}"></a></li>
+            <li><a href="/user/history" th:text="#{page.history}"></a></li>
+            <li><a href="/user/cart" th:text="#{page.cart}"></a></li>
+            <li><a href="/user/refill" th:text="#{page.refill}"></a></li>
+            <li><a href="/user/contacts" th:text="#{page.contacts}"></a></li>
+            <li><a href="/user/about" th:text="#{page.about}"></a></li>
+            <li><a href="/user/delivery" th:text="#{page.delivery}"></a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-6"><img src="/img/contact.jpg" alt=""></div>
+            <div class="col-6 contact_info">
+                <h2 th:text="#{footer.contacts}"></h2>
+                <a href="tel:+380631234567" class="phone">+38 063 123 45 67</a>
+                <a href="mailto:info@germes.ua" class="email">info@germes.ua</a>
+                <a class="location" th:text="#{footer.address}"></a>
+            </div>
+        </div>
+    </div>
+<footer>
+    <div class="container">
+        <div class="row footer_info">
+            <div class="col-4 footer-col logo" th:text="#{header.germes}">
+            </div>
+            <div class="col-4 footer-col contacts">
+                <div class="title" th:text="#{footer.contacts}"></div>
+                <a href="tel:+380631234567" class="phone">+38 063 123 45 67</a>
+                <a href="mailto:info@germes.ua" class="email">info@germes.ua</a>
+                <a class="location" th:text="#{footer.address}"></a>
+            </div>
+            <div class="col-4 footer-col">
+                <div class="title" th:text="#{footer.sendYourEmail}"></div>
+                <div class="email_input">
+                    <input type="email" name="email" placeholder="Email">
+                    <button th:text="#{button.send}">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row copyright">
+            <div class="col-12">
+                Made by Osypchuk Vladyslav and Novyk Aliona
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

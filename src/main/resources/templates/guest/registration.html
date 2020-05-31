@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/test.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="logo" th:text="#{header.germes}"></div>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-light" onclick="location.href='?locale=ua'" th:text="#{header.ukr}"></button>
+                <button type="submit" class="btn btn-light" onclick="location.href='?locale=en'" th:text="#{header.eng}"></button>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="menu">
+    <div class="container">
+        <ul>
+            <li><a href="/" th:text="#{page.main}"></a></li>
+            <li><a href="/login" th:text="#{page.login}"></a></li>
+            <li><a href="/registration" th:text="#{page.signup}"></a></li>
+        </ul>
+    </div>
+</nav>
+<div th:if="${param.error != null}">
+    <div class="alert alert-danger" role="alert" th:text="#{message.user_exist}"></div>
+</div>
+<div th:if="${param.regex != null}">
+    <div class="alert alert-danger" role="alert" th:text="#{text.regex1}">
+    </div>
+    <div class="alert alert-danger" role="alert" th:text="#{text.regex2}">
+    </div>
+    <div class="alert alert-danger" role="alert" th:text="#{text.regex3}">
+    </div>
+    <div class="alert alert-danger" role="alert" th:text="#{text.regex4}">
+    </div>
+    <div class="alert alert-danger" role="alert" th:text="#{text.regex5}">
+    </div>
+</div>
+<section class="login">
+    <form th:action="@{/registration}" method="post">
+        <label for="nameUkr" th:text="#{registration.name_ukr}"></label>
+        <input type="text" name="nameUkr" id="nameUkr" placeholder="Іван">
+        <label for="nameEng" th:text="#{registration.name_eng}"></label>
+        <input type="text" name="nameEng" id="nameEng" placeholder="Ivan">
+        <label for="email" th:text="#{registration.email}"></label>
+        <input type="email" name="email" id="email" placeholder="ivanov@gmail.com">
+        <label for="password" th:text="#{registration.password}"></label>
+        <input type="password" name="password" id="password" placeholder="********">
+        <input type="submit" th:value="#{button.signup}">
+    </form>
+</section>
+<footer>
+    <div class="container">
+        <div class="row footer_info">
+            <div class="col-4 footer-col logo" th:text="#{header.germes}">
+            </div>
+            <div class="col-4 footer-col contacts">
+                <div class="title" th:text="#{footer.contacts}"></div>
+                <a href="tel:+380631234567" class="phone">+38 063 123 45 67</a>
+                <a href="mailto:info@germes.ua" class="email">info@germes.ua</a>
+                <a class="location" th:text="#{footer.address}"></a>
+            </div>
+            <div class="col-4 footer-col">
+                <div class="title" th:text="#{footer.sendYourEmail}"></div>
+                <div class="email_input">
+                    <input type="email" name="email" placeholder="Email">
+                    <button th:text="#{button.send}"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row copyright">
+            <div class="col-12">
+                Made by Osypchuk Vladyslav and Novyk Aliona
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
