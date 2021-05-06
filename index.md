@@ -1,4 +1,4 @@
-google-site-verification: google85c3fbc7b2b2c1ae.html
+<meta name="google-site-verification" content="4Nzf1kzs88j4JkrgojvdyMWJSdfEV-xRhGsxAKItzT0" />
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/kelelas/germes/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
